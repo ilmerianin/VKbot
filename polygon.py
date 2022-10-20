@@ -9,26 +9,7 @@ from colorama import init
 
 # import colorama
 
-sekret ='9WyNPBBs2wdoTvCwPPjB'
-
-token2 = '8fba30158fba30158f01f052d78fc27f7d88fba8fba3015ecf7eba072843e68952b65c6' # получен через секретный код приложения
-
-token1 = 'a731730fa731730fa731730fc9a7493c67aa731a731730fc47cbedf7bd2e65c0eaade9c'
-
-token ='4f5f55394f5f55394f5f5539044f271a5144f5f4f5f55392f90f04afb7fcb405ee2697e'
-
-# https://m.vk.com/id22842277
-# https://api.vk.com/method/users.get?user_id=210700286&v=5.131
-was_id =  22842277 # вася
-VKlogin = 'ilmerianin@mail.ru'
-VKparol = 'igthvekm135'
-
-id_kod = { 'user' : [{	'id': was_id,
-			'login' : VKlogin,
-			'parol' :VKparol }],
-	'token' : [{'di_app' : 7884648,
-		'access_token': token }]
-	}
+servfile = 'vk_no_git.txt' # файл для хранения токенов и пиролей
 # старый способ получения токена https://oauth.vk.com/authorize?client_id=7884648&redirect_uri=https://oauth.vk.com/blank.html&scope=1325122&display=mobile&response_type=token #получение  токена возможно старый вариант
 
 #scope= 2+64+2048+4096+8192+262144+1048576 #коды разрешений  доступов
@@ -51,7 +32,7 @@ class color:
 	UNDERLINE = '\033[4m'
 	END = '\033[0m'
 
-menu = str(color.Green + ' [' + color.Yellow + '1' + color.Green + '] проверка работы в принципе\n [' + color.Yellow + '2' + color.Green + '] блок получения токена по секретному коду\n ['+ color.Yellow + '3' + color.Green + '] попытка что нибудь прочитать с токеном\n [' + color.Yellow + '4' + color.Green + '] взять токен из файла\n [' + color.Yellow + '5' + color.Green + '] работа с  библиотекой vk\n [' + color.Yellow + '6' + color.Green + '] получение API по паролю и логину \n [' + color.Yellow + '7' + color.Green + '] запрос списка груп по сушествующему API\n [' + color.Yellow + '8' + color.Green + '] запрос списка друзей  по сушествующему API\n [' + color.Yellow + '9'+ color.Green +' ] Поиск в диалоге по сообщению\n [' + color.Yellow +  '0' + color.Green + '] Выход' + color.END)
+menu = str(color.Green + ' [' + color.Yellow + '1' + color.Green + '] проверка работы в принципе\n [' + color.Yellow + '2' + color.Green + '] блок получения токена по секретному коду\n ['+ color.Yellow + '3' + color.Green + '] попытка что нибудь прочитать с токеном\n [' + color.Yellow + '4' + color.Green + '] взять токен из файла\n [' + color.Yellow + '5' + color.Green + '] работа с  библиотекой vk\n [' + color.Yellow + '6' + color.Green + '] получение API по паролю и логину \n [' + color.Yellow + '7' + color.Green + '] запрос списка груп по сушествующему API\n [' + color.Yellow + '8' + color.Green + '] запрос списка друзей  по сушествующему API\n [' + color.Yellow + '9'+ color.Green +'] Поиск в диалоге по сообщению\n [' + color.Yellow +  '0' + color.Green + '] Выход' + color.END)
 
 
 
@@ -191,7 +172,8 @@ def loadR(namefile = 'requesVK.txt'):
 	return r
 
 def workJson(jsonR = id_kod, namefile = 'vk_no_git.txt'):
-	'''Сохранение  json в файл  '''
+	'''Сохранение  json в файл  и проверка сделанна для первичного сохранения данных акаунтов и токенов 19.10.22 '''
+
 	print('получился файл')
 	pprint.pprint(jsonR)
 	saveR(jsonR, namefile)
@@ -203,9 +185,18 @@ def workJson(jsonR = id_kod, namefile = 'vk_no_git.txt'):
 	return sekret
 
 
-def main(token = token, id = was_id):
+def main(token = token, id = was_id, servfile = servfile):
 	#print('token:',token)
-	sekr = workJson()
+	# sekr = workJson() #первичное создание парольного файла
+	sekr = loadR(servfile)
+	#pprint.pprint(sekr)
+
+	pprint.pprint(sekr['user'][0]['id'])
+	print(sekr.token)
+
+
+
+
 	infinite = 0
 	while infinite < 5:
 		init()
