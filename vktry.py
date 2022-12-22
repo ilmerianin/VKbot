@@ -1,5 +1,5 @@
-# интересно только как источник кода
-# многие функции для рекламя отсылают на телеграм ботщ
+# интересно только как источник кода отдельных процедур
+# многие функции для рекламя отсылают  
 
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
@@ -223,7 +223,7 @@ def info_by_id():
 #Скачать истории диалогов
 def dl_history():
     clear()
-    print(color.Cyan + "Данная функция доступна в нашем Телеграм боте! : @Vk_Tokenner_bot ! Для выхода в главное меню нажмите Q"  + color.END)
+    print(color.Cyan + "Данная функция будет позже Для выхода в главное меню нажмите Q"  + color.END)
     choice = input('>>> ')
     if choice == 'Q' or choice == 'q':
         return
@@ -372,7 +372,7 @@ def page_info():
 #Отправка сообщений
 def send_message():
     clear()
-    print(color.Cyan + "Данная функция доступна в нашем Телеграм боте! : @Vk_Tokenner_bot ! Для выхода в главное меню нажмите Q"  + color.END)
+    print(color.Cyan + "Данная функция будет позже Для выхода в главное меню нажмите Q"  + color.END)
     choice = input('>>> ')
     if choice == 'Q' or choice == 'q':
         return
@@ -380,7 +380,7 @@ def send_message():
 #Дамп вложений из диалога
 def dl_attachments_from_dialog():
     clear()
-    print(color.Cyan + "Данная функция доступна в нашем Телеграм боте! : @Vk_Tokenner_bot ! Для выхода в главное меню нажмите Q"  + color.END)
+    print(color.Cyan + "Данная функция будет позжеДля выхода в главное меню нажмите Q"  + color.END)
     choice = input('>>> ')
     if choice == 'Q' or choice == 'q':
         return
