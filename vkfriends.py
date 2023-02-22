@@ -1,9 +1,8 @@
 # vkfriends
-# тренировка по  питон видео
 import vk
 import requests
 import json
-import pprint #https://docs.python.org/3.10/library/pprint.html
+import pprint 
 import sys
 import os
 import vk_skech
